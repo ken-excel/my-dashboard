@@ -1,0 +1,16 @@
+<h1>{{ computer.name }}</h1>
+<h2>{{ computer.type }}</h2>
+
+<h2>Temperature</h2>
+<ul>
+{% for temperature in computer.temperature_set.all %}
+    <li>{{ temperature.name }} - {{ temperature.temperature }}</li>
+{% endfor %}
+</ul>
+
+<h2>Fan</h2>
+<ul>
+{% for fan in computer.fan_set.all %}
+    <li>{{ fan.name }} - {{ fan.speed }}</li>
+{% endfor %}
+</ul>
