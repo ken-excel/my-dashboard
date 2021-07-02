@@ -1,9 +1,0 @@
-{% if computer_list %}
-    <ul>
-    {% for computer in computer_list %}
-        <li><a href="{% url 'dashboard:detail' computer.id %}">{{ computer.name }} ({{ computer.type }})</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No computers are available.</p>
-{% endif %}

@@ -1,0 +1,26 @@
+{% if computer_list %}
+    <ul>
+    {% for computer in computer_list %}
+        <li>
+            <h1 style="display:inline">{{ computer.name }}</h1> 
+            <h3 style="display:inline">({{ computer.type }})</h3>
+
+            <h2>Temperature</h2>
+            <ul>
+            {% for temperature in computer.temperature_set.all %}
+                <li>{{ temperature.name }} - {{ temperature.temperature }}</li>
+            {% endfor %}
+            </ul>
+
+            <h2>Fan</h2>
+            <ul>
+            {% for fan in computer.fan_set.all %}
+                <li>{{ fan.name }} - {{ fan.speed }}</li>
+            {% endfor %}
+            </ul>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No computers are available.</p>
+{% endif %}

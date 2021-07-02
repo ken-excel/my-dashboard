@@ -4,6 +4,7 @@ from . import views
 
 app_name = 'dashboard'
 urlpatterns = [
-    path('', views.IndexView.as_view(), name='index'),
-    path('<int:pk>/', views.DetailView.as_view(), name='detail')
+    path('', views.PCMonitorView.as_view(), name='pcmonitor'),
+    path('pcmonitor/', views.PCMonitorView.as_view(), name='pcmonitor'),
+
 ]
