@@ -1,0 +1,14 @@
+{% if crypto_list %}
+    <ul>
+    {% for crypto in crypto_list %}
+        <li>
+            <h1 style="display:inline">{{ crypto.symbol }}</h1> 
+            <h3 style="display:inline">({{ crypto.name }})</h3>
+            <h1 style="display:inline"> Price: {{ crypto.price }} USD</h1> 
+            <h1 style="display:inline">({{ crypto.dayChange }})</h1> 
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No cryptocurrencies are being tracked.</p>
+{% endif %}
