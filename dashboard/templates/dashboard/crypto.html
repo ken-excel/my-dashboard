@@ -4,11 +4,21 @@
         <li>
             <h1 style="display:inline">{{ crypto.symbol }}</h1> 
             <h3 style="display:inline">({{ crypto.name }})</h3>
-            <h1 style="display:inline"> Price: {{ crypto.price }} USD</h1> 
-            <h1 style="display:inline">({{ crypto.dayChange }})</h1> 
+            <br>
+            <h3 style="display:inline"> Price: {{ crypto.price }} USD</h3> 
+            {% if crypto.volume_24h > 0 %}
+                <h3 style="display:inline"> ({{ crypto.volume_24h }})%</h3> 
+            {% else %}
+                <h3 style="display:inline"> (-{{ crypto.volume_24h }})%</h3> 
+            {% endif %}
+            <br>
+            <h3 style="display:inline">{{ crypto.url_shares }} url shares /</h3> 
+            <h3 style="display:inline">{{ crypto.reddit_posts }} reddit posts /</h3> 
+            <h3 style="display:inline">{{ crypto.tweets }} tweets</h3> 
         </li>
     {% endfor %}
     </ul>
 {% else %}
     <p>No cryptocurrencies are being tracked.</p>
 {% endif %}
+*Data from LunarCrush API*
