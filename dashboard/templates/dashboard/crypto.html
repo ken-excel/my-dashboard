@@ -7,9 +7,9 @@
             <br>
             <h3 style="display:inline"> Price: {{ crypto.price }} USD</h3> 
             {% if crypto.volume_24h > 0 %}
-                <h3 style="display:inline"> ({{ crypto.volume_24h }})%</h3> 
+                <h3 style="display:inline"> (+{{ crypto.percent_change_24h }}%)</h3> 
             {% else %}
-                <h3 style="display:inline"> (-{{ crypto.volume_24h }})%</h3> 
+                <h3 style="display:inline"> (-{{ crypto.percent_change_24h }}%)</h3> 
             {% endif %}
             <br>
             <h3 style="display:inline">{{ crypto.url_shares }} url shares /</h3> 
