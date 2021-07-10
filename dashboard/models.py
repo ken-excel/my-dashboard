@@ -24,3 +24,9 @@ class Crypto(models.Model):
     name = models.CharField(max_length=50, unique=True)
     def __str__(self):
         return self.name
+
+class Spotify(models.Model):
+    name = models.CharField(max_length=50, unique=True)
+    uri = models.CharField(max_length=50)
+    def __str__(self):
+        return self.name

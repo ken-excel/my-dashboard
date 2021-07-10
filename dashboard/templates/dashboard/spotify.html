@@ -1,0 +1,18 @@
+{% if artists_list %}
+    <ul>
+    {% for artist in artists_list %}
+        <li>
+            <h1>{{ artist.name }}</h1>
+            {% for album in artist.albums %}
+            <li>
+                <h2 style="display:inline">{{ album.name }}</h2>
+                <h2 style="display:inline"> ({{ album.release_date }})</h2>
+            </li>
+            {% endfor %}
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No artists' releases are being tracked.</p>
+{% endif %}
+*Data from Spotify API*
