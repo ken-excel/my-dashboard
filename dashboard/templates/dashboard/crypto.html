@@ -1,3 +1,7 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
 {% if crypto_list %}
     <ul>
     {% for crypto in crypto_list %}
@@ -21,4 +25,4 @@
 {% else %}
     <p>No cryptocurrencies are being tracked.</p>
 {% endif %}
-*Data from LunarCrush API*
+{% endblock %}

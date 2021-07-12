@@ -1,26 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href='/static/dashboard/pcmonitor.css'>
 {% if computer_list %}
-    <ul>
     {% for computer in computer_list %}
-        <li>
-            <h1 style="display:inline">{{ computer.name }}</h1> 
-            <h3 style="display:inline">({{ computer.type }})</h3>
+        <div class="pc-container">
+            <div class="pc-container-header">
+                <h1 style="display:inline">{{ computer.name }}</h1> 
+                <h3 style="display:inline">({{ computer.type }})</h3>
+            </div>
+            
+            <div class="pc-container-content">
+                <div class="pc-container-temperature container">
+                <h2>Temperature</h2>
+                {% for temperature in computer.temperature_set.all %}
+                    <div class="row">
+                        <div class="col-8">
+                            {{ temperature.name }}
+                        </div>
+                        <div class="col" style="text-align: center;">
+                            {{ temperature.temperature }}
+                        </div>
+                        <div class="col-1" style="text-align: center;">
+                            °C
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
 
-            <h2>Temperature</h2>
-            <ul>
-            {% for temperature in computer.temperature_set.all %}
-                <li>{{ temperature.name }} - {{ temperature.temperature }}</li>
-            {% endfor %}
-            </ul>
-
-            <h2>Fan</h2>
-            <ul>
-            {% for fan in computer.fan_set.all %}
-                <li>{{ fan.name }} - {{ fan.speed }}</li>
-            {% endfor %}
-            </ul>
-        </li>
+                <div class="pc-container-fan container">
+                <h2>Fan</h2>
+                {% for fan in computer.fan_set.all %}
+                    <div class="row">
+                        <div class="col-8">
+                            {{ fan.name }}
+                        </div>
+                        <div class="col" style="text-align: center;">
+                            {{ fan.speed }}
+                        </div>
+                        <div class="col-1" style="text-align: center;">
+                            RPM
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
     {% endfor %}
-    </ul>
 {% else %}
     <p>No computers are available.</p>
 {% endif %}
+{% endblock %}

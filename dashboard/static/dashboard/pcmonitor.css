@@ -1,0 +1,23 @@
+.pc-container{
+    padding: 25px 50px;
+}
+
+.pc-container-header{
+    width: 100%;
+}
+
+.pc-container-content{
+    padding: 25px 25px;
+    display: flex;
+    width: 100%;
+}
+
+.pc-container-temperature{
+    padding: 0px 50px;
+    width: 50%;
+}
+
+.pc-container-fan{
+    padding: 0px 50px;
+    width: 50%;
+}

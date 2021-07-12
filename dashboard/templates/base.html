@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'dashboard/base.css' %}">
+<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+<html lang="en">
+<head>
+    <title>{% block title %}My Dashboard{% endblock %}</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        {% block sidebar %}
+        <nav id="sidebar">
+            <div class="list-group">
+                <a class="list-group-item list-group-item-primary list-group-item-action" href="/dashboard/pcmonitor/">PC Monitor</a>
+                <a class="list-group-item list-group-item-primary list-group-item-action" href="/dashboard/crypto/">Crypto Tracker</a>
+                <a class="list-group-item list-group-item-primary list-group-item-action" href="/dashboard/spotify/">Spotify New Releases</a>
+            </div>
+        </nav>
+        {% endblock %}
+
+        <div id="content">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+</body>
+
+</html>
