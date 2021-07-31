@@ -1,28 +1,36 @@
 {% extends 'base.html' %}
-{% load static %}
-
 {% block content %}
+{% load static %}
+{% load humanize %}
+<link rel="stylesheet" type="text/css" href='/static/dashboard/crypto.css'>
+<div class="crypto-container">
 {% if crypto_list %}
-    <ul>
-    {% for crypto in crypto_list %}
-        <li>
-            <h1 style="display:inline">{{ crypto.symbol }}</h1> 
-            <h3 style="display:inline">({{ crypto.name }})</h3>
-            <br>
-            <h3 style="display:inline"> Price: {{ crypto.price }} USD</h3> 
-            {% if crypto.volume_24h > 0 %}
-                <h3 style="display:inline"> (+{{ crypto.percent_change_24h }}%)</h3> 
+    <table class="crypto-table">
+        <tr class="crypto-table">
+            <th>Symbol</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>24h%</th>
+            <th>Volume (24h)</th>
+            <th>Tweets</th>
+        </tr>
+        {% for crypto in crypto_list %}
+        <tr>
+            <td>{{ crypto.symbol }}</td>
+            <td>{{ crypto.name }}</td>
+            <td>${{ crypto.price|floatformat:2|intcomma }}</td>
+            {% if crypto.percent_change_24h > 0 %}
+                <td class="crypto-green-value">+{{ crypto.percent_change_24h }}%</td> 
             {% else %}
-                <h3 style="display:inline"> (-{{ crypto.percent_change_24h }}%)</h3> 
+                <td class="crypto-red-value">{{ crypto.percent_change_24h }}%</td> 
             {% endif %}
-            <br>
-            <h3 style="display:inline">{{ crypto.url_shares }} url shares /</h3> 
-            <h3 style="display:inline">{{ crypto.reddit_posts }} reddit posts /</h3> 
-            <h3 style="display:inline">{{ crypto.tweets }} tweets</h3> 
-        </li>
-    {% endfor %}
-    </ul>
+            <td>${{ crypto.volume_24h|floatformat:2|intcomma }}</td>
+            <td>{{ crypto.tweets }}</td>
+        </tr>
+        {% endfor %}
+    </table>
 {% else %}
     <p>No cryptocurrencies are being tracked.</p>
 {% endif %}
+</div>
 {% endblock %}

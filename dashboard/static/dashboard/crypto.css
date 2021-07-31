@@ -1,0 +1,26 @@
+.crypto-container{
+    padding: 25px 50px;
+}
+
+.crypto-green-value{
+    color:green;
+}
+
+.crypto-red-value{
+    color:red;
+}
+
+table{
+    width:100%; 
+    border-collapse: collapse;
+}
+
+td, th {
+  border: 1px solid black;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
