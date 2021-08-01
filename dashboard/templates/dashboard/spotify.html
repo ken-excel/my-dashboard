@@ -1,22 +1,31 @@
 {% extends 'base.html' %}
+{% block content %}
 {% load static %}
 
-{% block content %}
+<link rel="stylesheet" type="text/css" href='/static/dashboard/spotify.css'>
+<div class="spotify-container">
 {% if artists_list %}
-    <ul>
     {% for artist in artists_list %}
-        <li>
-            <h1>{{ artist.name }}</h1>
-            {% for album in artist.albums %}
-            <li>
-                <h2 style="display:inline">{{ album.name }}</h2>
-                <h2 style="display:inline"> ({{ album.release_date }})</h2>
-            </li>
-            {% endfor %}
-        </li>
+        <div class="artist-container">
+            <div class="artist-header-container">
+                <div class="pointer artist-pointer">
+                    <div class="pointer-content artist-content"><h4>{{ artist.name }}</h4></div>
+                </div>
+            </div>
+            <div class="artist-content-container">
+                {% for album in artist.albums %}
+                <div class="pointer album-pointer">
+                    <div class="pointer-content album-content">
+                        <p>{{ album.name }}</p>
+                        <p class="album-release">{{ album.release_date }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
     {% endfor %}
-    </ul>
 {% else %}
     <p>No artists' releases are being tracked.</p>
 {% endif %}
+</div>
 {% endblock %}

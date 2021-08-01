@@ -1,0 +1,99 @@
+.spotify-container{
+  padding: 25px 50px;
+  background-color: #696969;
+}
+
+.artist-container{
+  display: flex;
+  border-bottom: 2px solid black;
+}
+
+.artist-header-container{
+  width:400px;
+  border-right: 2px solid black;
+  text-align:center;
+  vertical-align: middle;
+}
+
+.artist-content-container{
+  width:100%;
+}
+
+.pointer {
+  display: inline-block;
+  font-size: 16pt; 
+  width: 250px;
+  height: 3em;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  margin: 0.6em;
+}
+
+.artist-pointer{
+  background: #1DB954;
+}
+
+.album-pointer:nth-child(odd){
+  background: black;
+}
+
+.album-pointer:nth-child(even){
+  background: #1DB954;
+}
+
+.pointer:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-left: 1em solid #696969;
+  border-top: 1.5em solid transparent;
+  border-bottom: 1.5em solid transparent;
+}
+
+.pointer:before {
+  content: "";
+  position: absolute;
+  right: -1em;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-top: 1.5em solid transparent;
+  border-bottom: 1.5em solid transparent;
+}
+
+.artist-pointer:before {
+  border-left: 1em solid #1DB954;
+}
+
+.album-pointer:nth-child(odd):before{
+  border-left: 1em solid black;
+}
+
+.album-pointer:nth-child(even):before{
+  border-left: 1em solid #1DB954;
+}
+
+.pointer-content {
+  position: relative;
+  top: 0.25em;
+  left: 1em;
+}
+
+.artist-content {
+  color: black;
+}
+
+.album-content {
+  color: white;
+}
+
+.album-release {
+  position: absolute;
+  top: 2.5em;
+  right: 1.25em;
+  font-size: 10pt; 
+}
